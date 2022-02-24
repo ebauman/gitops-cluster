@@ -1,0 +1,40 @@
+apiVersion: provisioning.cattle.io/v1
+kind: Cluster
+metadata:
+  name: eamon-testing
+  namespace: fleet-default
+spec:
+  cloudCredentialSecretName: cattle-global-data:cc-67fxr
+  kubernetesVersion: v1.21.9+rke2r1
+  localClusterAuthEndpoint: {}
+  rkeConfig:
+    chartValues:
+      rke2-calico: {}
+    etcd:
+      snapshotRetention: 5
+      snapshotScheduleCron: 0 */5 * * *
+    machineGlobalConfig:
+      cni: calico
+      disable-kube-proxy: false
+      etcd-expose-metrics: false
+      profile: null
+    machinePools:
+    - controlPlaneRole: true
+      etcdRole: true
+      machineConfigRef:
+        kind: Amazonec2Config
+        name: nc-eamon-testing-pool1-jsp7z
+      name: pool1
+      quantity: 3
+      workerRole: true
+    machineSelectorConfig:
+    - config:
+        protect-kernel-defaults: false
+    registries: {}
+    upgradeStrategy:
+      controlPlaneConcurrency: 10%
+      controlPlaneDrainOptions:
+        timeout: 0
+      workerConcurrency: 10%
+      workerDrainOptions:
+        timeout: 0

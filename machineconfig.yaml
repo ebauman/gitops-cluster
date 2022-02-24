@@ -1,0 +1,42 @@
+accessKey: ""
+ami: ""
+apiVersion: rke-machine-config.cattle.io/v1
+blockDurationMinutes: "0"
+deviceName: ""
+encryptEbsVolume: false
+endpoint: ""
+httpEndpoint: ""
+httpTokens: ""
+iamInstanceProfile: ""
+insecureTransport: false
+instanceType: t3a.large
+keypairName: ""
+kind: Amazonec2Config
+kmsKey: ""
+metadata:
+  generateName: nc-eamon-testing-pool1-
+  name: nc-eamon-testing-pool1-jsp7z
+  namespace: fleet-default
+monitoring: false
+openPort: []
+privateAddressOnly: false
+region: us-west-2
+requestSpotInstance: false
+retries: "5"
+rootSize: "16"
+secretKey: ""
+securityGroup:
+- rancher-nodes
+securityGroupReadonly: false
+sessionToken: ""
+spotPrice: "0.50"
+sshKeyContents: ""
+sshUser: ubuntu
+subnetId: subnet-046d4272053ee8c60
+tags: ""
+useEbsOptimizedInstance: false
+usePrivateAddress: false
+userdata: ""
+volumeType: gp2
+vpcId: vpc-03d0ca7cd913e5622
+zone: a
